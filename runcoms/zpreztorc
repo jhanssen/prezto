@@ -16,7 +16,7 @@
 zstyle ':prezto:*:*' color 'yes'
 
 # Set the Zsh modules to load (man zshmodules).
-# zstyle ':prezto:load' zmodule 'attr' 'stat'
+zstyle ':prezto:load' zmodule 'attr' 'stat'
 
 # Set the Zsh functions to load (man zshcontrib).
 # zstyle ':prezto:load' zfunction 'zargs' 'zmv'
@@ -32,7 +32,8 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt'
+  'prompt' \
+  'git'
 
 #
 # Autosuggestions
@@ -92,7 +93,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt' theme 'jhanssen'
 
 #
 # Ruby
@@ -163,3 +164,55 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 
 # Integrate with iTerm2.
 # zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+
+source ~/dev/nrdp-scripts/.sh/lsdev.sh
+
+unsetopt correct_all
+#setopt correct autopushd
+setopt autopushd
+
+export EDITOR="em -w"
+export NF_IDFILE=~/.netflix-token.mgk
+
+export PATH=~/bin:~/dev/nrdp-scripts/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+
+_em_complete_rc() {
+  local a
+  local files
+  local components
+  read -l a
+  a=${a/#em ##/}
+  a=${a/#-?## ##/}
+  reply=(`rc -p -S "$a"`)
+  files=(`rc -P "$a"`)
+  for ((i=0; i < ${#files[@]}; i++)); do
+    components=("${(@s#/#)${files[$i]}}")
+    if [[ "$components[${#components[@]}]" == "$1"* ]]; then
+      reply+=($components[${#components[@]}])
+    fi
+  done
+}
+
+compctl -K _em_complete_rc -f em
+
+alias rmake="ubermake.sh -r"
+alias rninja="ubermake.sh -r"
+alias make=ubermake.sh
+alias cling=$HOME/dev/cling/bin/cling -Wc++11-extensions -std=c++11
+
+gs() {
+  git lsdev -r "$@" sync --autostash
+}
+
+export NINJA_STATUS="[%s/%t %c] "
+
+# Fix completions
+zstyle ':completion:*' matcher-list ''
+
+export EMACSCLIENT="emacsclient"
+export EMACS_SERVER_FILE=~/.emacs.d/.socket
+
+#Add emacsclient path on OS X
+if [ $(uname) = Darwin ]; then
+  export PATH=/Applications/Emacs.app/Contents/MacOS/bin/:$PATH
+fi
