@@ -111,3 +111,15 @@ unset zfunction{s,}
 zstyle -a ':prezto:load' pmodule 'pmodules'
 pmodload "$pmodules[@]"
 unset pmodules
+
+# System specific stuff
+SYSTEM=`uname -s`
+if [[ -n "$SYSTEM" && -f "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshrc.system.$SYSTEM" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshrc.system.$SYSTEM"
+fi
+
+# Source host specific stuff.
+HOST=`uname -n`
+if [[ -n "$HOST" && -f "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshrc.host.$HOST" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshrc.host.$HOST"
+fi

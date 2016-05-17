@@ -213,8 +213,3 @@ zstyle ':completion:*' matcher-list ''
 
 export EMACSCLIENT="emacsclient"
 export EMACS_SERVER_FILE=~/.emacs.d/.socket
-
-#Add emacsclient path on OS X
-if [ $(uname) = Darwin ]; then
-  export PATH=/Applications/Emacs.app/Contents/MacOS/bin/:$PATH
-fi

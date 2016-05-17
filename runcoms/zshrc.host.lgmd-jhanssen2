@@ -1,0 +1,3 @@
+export NF_HTTPD_PREFIX=/usr/local/var/www/htdocs:http://lgmd-jhanssen.corp.netflix.com:8080
+export JIRACLIPATH=/Users/jhanssen/dev/nrdp-scripts/bin/jira-cli-2.6.0
+export JIRA_PASSWORD_FILE=/Users/jhanssen/dev/private/jira/passwd.txt.gpg
