@@ -213,3 +213,5 @@ zstyle ':completion:*' matcher-list ''
 
 export EMACSCLIENT="emacsclient"
 export EMACS_SERVER_FILE=~/.emacs.d/.socket
+
+export NF_WARN_AREAS=none
