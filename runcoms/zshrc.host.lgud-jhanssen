@@ -1,5 +1,15 @@
 export NF_GLX_USE_DIRECT_CONTEXT=1
 export JIRACLIPATH=/home/jhanssen/dev/nrdp-scripts/bin/jira-cli-2.6.0
 export JIRA_PASSWORD_FILE=/home/jhanssen/dev/private/jira/passwd.txt.gpg
+export PATH=/snap/bin:$PATH
 
 export LC_ALL=en_US.UTF-8
+
+export UBERMAKE_REDUCE_RTAGS_LOAD=1
+
+export NF_SPLASH_SCREEN=0
+
+export FISK_ENABLED=1
+export CTNG_LD_IS=lld
+
+export MAKEFLAGS="-j100"
