@@ -270,7 +270,7 @@ export NINJA_STATUS="[%s/%t %c] "
 # Fix completions
 zstyle ':completion:*' matcher-list ''
 
-zstyle ':prezto:module:utility' safe-ops
+zstyle ':prezto:module:utility' safe-ops 'no'
 
 export EMACSCLIENT="emacsclient"
 export EMACS_SERVER_FILE=~/.emacs.d/.socket
