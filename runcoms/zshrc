@@ -20,7 +20,17 @@ alias cmaked="cmake -DCMAKE_BUILD_TYPE=Debug -GNinja -DCMAKE_EXPORT_COMPILE_COMM
 export NF_NO_CHECK_SINGLE_INSTANCE=1
 
 PATH="/home/jhanssen/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PATH="/home/jhanssen/npm/bin:$PATH"; export PATH;
 PERL5LIB="/home/jhanssen/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/jhanssen/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/jhanssen/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/jhanssen/perl5"; export PERL_MM_OPT;
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+fzf-history-widget-accept() {
+  fzf-history-widget
+  zle accept-line
+}
+zle     -N     fzf-history-widget-accept
+bindkey '^R' fzf-history-widget-accept
