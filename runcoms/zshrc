@@ -17,6 +17,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=Release -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=1"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=Debug -GNinja -DCMAKE_EXPORT_COMPILE_COMMANDS=1"
 
+alias vmake="VERBOSE=1 AM_DEFAULT_VERBOSITY=1 make"
+alias firsterror="vmake -j1 2>&1 | less"
+
 export NF_NO_CHECK_SINGLE_INSTANCE=1
 
 PATH="/home/jhanssen/perl5/bin${PATH:+:${PATH}}"; export PATH;
