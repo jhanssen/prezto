@@ -1,1 +1,2 @@
 export PATH=/Applications/Emacs.app/Contents/MacOS/bin/:$PATH
+export CPATH=`xcrun --show-sdk-path`/usr/include
