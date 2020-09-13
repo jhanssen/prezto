@@ -262,7 +262,7 @@ alias make=ubermake.sh
 alias cling=$HOME/dev/cling/bin/cling -Wc++11-extensions -std=c++11
 
 gs() {
-  git lsdev -r "$@" sync --autostash
+  git lsdev "$@" sync --autostash
 }
 
 export NINJA_STATUS="[%s/%t %c] "
