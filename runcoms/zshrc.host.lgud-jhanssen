@@ -11,6 +11,5 @@ export UBERMAKE_REDUCE_RTAGS_LOAD=1
 export NF_SPLASH_SCREEN=0
 
 export FISK_ENABLED=1
-export CTNG_LD_IS=lld
 
 export MAKEFLAGS="-j100"
