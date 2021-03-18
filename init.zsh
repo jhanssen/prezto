@@ -192,6 +192,10 @@ unset pmodules
 
 # System specific stuff
 SYSTEM=`uname -s`
+PROCESSOR=`uname -p`
+if [ "$PROCESSOR" = "arm" ]; then
+   SYSTEM="$SYSTEM-$PROCESSOR"
+fi
 if [[ -n "$SYSTEM" && -f "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshrc.system.$SYSTEM" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/runcoms/zshrc.system.$SYSTEM"
 fi
