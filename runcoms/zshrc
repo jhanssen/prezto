@@ -21,6 +21,7 @@ alias vmake="VERBOSE=1 AM_DEFAULT_VERBOSITY=1 make"
 alias firsterror="vmake -j1 2>&1 | less"
 
 export NF_NO_CHECK_SINGLE_INSTANCE=1
+export NF_VK_X11_VISUAL_BPP=32
 
 PATH="/home/jhanssen/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PATH="/home/jhanssen/npm/bin:$PATH"; export PATH;
