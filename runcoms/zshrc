@@ -36,6 +36,11 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export EMACS_SERVER_FILE=~/.emacsserver.d/server
 export PATH="$HOME/.local/bin:$PATH"
 
+[ -s "/home/jhanssen/.jambafuncs" ] && \. "/home/jhanssen/.jambafuncs"  # Prepare Jamba env
+
+# opencode
+export PATH=/home/jhanssen/.opencode/bin:$PATH
+
 # mb tab-title — reuse the prezto theme's path shortener so the title
 # matches PS1's directory display. Resolved at call time, so prezto only
 # needs to be loaded by the time the first prompt fires.
