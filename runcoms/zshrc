@@ -45,3 +45,6 @@ export PATH=/home/jhanssen/.opencode/bin:$PATH
 # matches PS1's directory display. Resolved at call time, so prezto only
 # needs to be loaded by the time the first prompt fires.
 _mb_title_for_prompt() { prompt_jhanssen_pwd }
+
+# Keep ~/bin ahead of everything prepended above.
+path=("$HOME/bin" ${path:#$HOME/bin})
